@@ -7,7 +7,7 @@ import {store} from "../../engine/init/store";
 import MainWidget from "../MainWidget";
 // Style
 import './App.css';
-// TODO Add provider
+
 function App() {
   return (
     <Provider store={store}>
