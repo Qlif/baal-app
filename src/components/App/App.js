@@ -1,15 +1,18 @@
-//Core
+// Core
 import React from 'react';
-//Components
+import {Provider} from "react-redux";
+// Store
+import {store} from "../../engine/init/store";
+// Components
 import MainWidget from "../MainWidget";
-//Style
+// Style
 import './App.css';
-
+// TODO Add provider
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <MainWidget />
-    </div>
+    </Provider>
   );
 }
 
