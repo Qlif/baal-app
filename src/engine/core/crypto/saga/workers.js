@@ -8,7 +8,7 @@ export function* callCryptoDataAsyncWorker() {
     try {
         const response = yield Axios.get("https://api.kuna.io/v3/exchange-rates");
         function filterCyrentCryppto(value) {
-            const cryptoValute = ["usd", "uah", "rub", "btc", "eth", "xrp"];
+            const cryptoValute = ["btc", "eth", "xrp"];
             if(cryptoValute.includes(value.currency))
                 return value
         }

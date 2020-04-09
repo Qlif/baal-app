@@ -1,6 +1,7 @@
 //Core
 import React, {useEffect}from "react";
 import {useDispatch, useSelector } from "react-redux";
+import * as selectors from "../../engine/core/crypto/selectors";
 //Types
 import * as asyncAction from "../../engine/core/crypto/saga/asyncActions";
 //Components
@@ -15,12 +16,16 @@ function MainWidget() {
             dispatch(asyncAction.getCryptoDataAsync())
         }, [dispatch]);
 
-    return(
-        <div>
-            <Widget />
-            <CalcCrypto />
-        </div>
-    );
+    const data =(useSelector(selectors.cryptowidgetSelector));
+
+
+
+
+    return(data.map((item, index) =>
+        <div key={index}>
+            <Widget item = {item}  />
+        </div>))
+
 }
 
 export default MainWidget;
