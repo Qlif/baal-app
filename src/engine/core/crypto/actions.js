@@ -5,3 +5,8 @@ export const setCryptoData= data =>({
     payload: data
 });
 
+export const setCurrentCrypto = data =>({
+    type: types.SET_CURRENT_CRYPTO,
+    payload: data
+})
+

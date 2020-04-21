@@ -1,17 +1,24 @@
 //Core
-import React from "react";
+import React,{useCallback} from "react";
+import {useDispatch}from "react-redux";
+//Action
+import {setCurrentCrypto} from "../../engine/core/crypto/actions";
 
-function Widget(props) {
-    const {item}=props;
-    const {currency,rub, uah, usd} = item;
+function Widget(data) {
+    const dispach = useDispatch();
+
+    const onclickhendler = useCallback(()=>{
+        dispach(setCurrentCrypto(data.currency));
+    },[dispach]);
+
     return(
-        <>
-            <img src ={`./image/${currency.toUpperCase()}.png`}/>
-        <span> {currency}</span><br/>
-        <span> {rub}</span><br/>
-        <span> {uah}</span><br/>
-        <span> {usd}</span><br/>
-         </>
+        <div onClick={onclickhendler}>
+            <img src ={`./image/${data.currency.toUpperCase()}.png`}/>
+        <span> {data.currency.toUpperCase()}</span><br/>
+        <span> USD: {data.usd}</span><br/>
+        <span> UAH: {data.uah}</span><br/>
+        <span> RUB: {data.rub}</span><br/>
+         </div>
     );
 }
 export default Widget;

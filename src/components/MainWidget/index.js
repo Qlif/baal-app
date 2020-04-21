@@ -6,7 +6,7 @@ import * as selectors from "../../engine/core/crypto/selectors";
 import * as asyncAction from "../../engine/core/crypto/saga/asyncActions";
 //Components
 import Widget from "../Widget";
-import CalcCrypto from "../CalcCrypto";
+
 //Style
 
 function MainWidget() {
@@ -17,14 +17,14 @@ function MainWidget() {
         }, [dispatch]);
 
     const data =(useSelector(selectors.cryptowidgetSelector));
+    console.log(data);
 
-
-
-
-    return(data.map((item, index) =>
-        <div key={index}>
-            <Widget item = {item}  />
-        </div>))
+    return<>
+        {Object.keys(data).map((currency, index) => (
+            <div key={index}>
+                <Widget  {...data[currency]} />
+            </div>))}
+            </>
 
 }
 
