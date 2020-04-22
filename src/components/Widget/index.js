@@ -7,12 +7,12 @@ import {setCurrentCrypto} from "../../engine/core/crypto/actions";
 function Widget(data) {
     const dispach = useDispatch();
 
-    const onclickhendler = useCallback(()=>{
+    const onclickHandler = useCallback(()=>{
         dispach(setCurrentCrypto(data.currency));
     },[dispach]);
 
     return(
-        <div onClick={onclickhendler}>
+        <div onClick={onclickHandler}>
             <img src ={`./image/${data.currency.toUpperCase()}.png`}/>
         <span> {data.currency.toUpperCase()}</span><br/>
         <span> USD: {data.usd}</span><br/>
