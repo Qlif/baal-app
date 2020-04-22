@@ -8,5 +8,10 @@ export const setCryptoData= data =>({
 export const setCurrentCrypto = data =>({
     type: types.SET_CURRENT_CRYPTO,
     payload: data
+});
+
+export const setVolumeCrypto = data =>({
+    type: types.SET_VOLUME_CRYPTO,
+    payload: data
 })
 
