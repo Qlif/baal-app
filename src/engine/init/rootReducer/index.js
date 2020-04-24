@@ -5,5 +5,5 @@ import {combineReducers} from "redux";
 import cryptoReducer from "../../core/crypto/reducer";
 
 export default combineReducers({
-    crypto: cryptoReducer
+  crypto: cryptoReducer
 });

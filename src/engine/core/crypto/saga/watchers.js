@@ -7,11 +7,11 @@ import {callCryptoDataAsyncWorker} from "./workers";
 
 
 function* watchGetCryptoData() {
-    yield takeEvery(asyncTypes.GET_CRYPTO_DATA_ASYNC,callCryptoDataAsyncWorker)
+  yield takeEvery(asyncTypes.GET_CRYPTO_DATA_ASYNC, callCryptoDataAsyncWorker)
 }
 
 export function* cryptoWatcher() {
-    yield all([
-        call(watchGetCryptoData)
-    ]);
+  yield all([
+    call(watchGetCryptoData)
+  ]);
 }

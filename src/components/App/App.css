@@ -1,4 +1,25 @@
-.App {
+.App{
+    background-color: #06162E;
+    color: #7DACF3;
+    height: 100vh;
+    padding-top: 50px;
+}
+.media {
+    background-color: #0d2f52;
+    padding: 30px 33px 52px;
+}
 
+figcaption {
+    color: #86c551;
+    text-align: center;
+}
+
+.media-body{
+    margin-left: 29px;
+}
+
+.SelectedCrypto{
+    text-align: center;
+    margin: 36px;
 }
 
