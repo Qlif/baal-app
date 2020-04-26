@@ -1,9 +1,10 @@
 import * as types from "./types";
 
 const initialState = {
-  data: [],
+  data: {},
   current: 'btc',
   volume: 5,
+  valute: 'uah',
 };
 
 export default function cryptoReducer(state = initialState, action) {
@@ -24,6 +25,12 @@ export default function cryptoReducer(state = initialState, action) {
       return {
         ...state,
         volume: action.payload
+      };
+    }
+    case types.SET_CURRENT_VALUTE: {
+      return {
+        ...state,
+        valute: action.payload
       };
     }
     default: {

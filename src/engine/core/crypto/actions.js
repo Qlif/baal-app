@@ -14,4 +14,8 @@ export const setVolumeCrypto = data => ({
   type: types.SET_VOLUME_CRYPTO,
   payload: data
 });
+export const setCurrentValute = data => ({
+  type: types.SET_CURRENT_VALUTE,
+  payload: data
+});
 

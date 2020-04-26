@@ -4,53 +4,46 @@ import {useSelector, useDispatch} from "react-redux";
 //Actions
 import * as Actions from "../../engine/core/crypto/actions";
 //Selectors
-import {volumeCryptoSelector} from "../../engine/core/crypto/selectors";
+import {volumeCryptoSelector, calcCryptoSelector } from "../../engine/core/crypto/selectors";
+//Style
+import {Button, Row, Col} from "reactstrap";
 
 function CalcCrypto() {
 
   const dispatch = useDispatch();
+  const ARRAY_CURRENT_VALUTE = ["uah", "usd", "rub"];
 
   const onChangeEventHandler = useCallback((ev) => {
     dispatch(Actions.setVolumeCrypto(ev.target.value))
     console.log(ev.target.value);
   }, [dispatch]);
 
+  const onClickEventHandler = useCallback((ev)=>{
+    dispatch(Actions.setCurrentValute(ev.target.textContent.toLowerCase()));
+  },[dispatch])
+
+
+  console.log(useSelector(calcCryptoSelector));
   return (
     <>
-      <form>
+      <Row>
         <label htmlFor="volume">Volume: </label>
         <input id="volume"
                type="text"
                onChange={onChangeEventHandler}
                value={useSelector(volumeCryptoSelector)}
         />
-
-        <div>
-          <label htmlFor="contactChoice1">UAH</label>
-          <input type="radio"
-                 id="contactChoice1"
-                 name="current"
-                 value="uah"
-          />
-
-          <label htmlFor="contactChoice2">USD</label>
-          <input type="radio"
-                 id="contactChoice2"
-                 name="current"
-                 value="usd"
-          />
-
-          <label htmlFor="contactChoice3">RUB</label>
-          <input type="radio"
-                 id="contactChoice3"
-                 name="current"
-                 value="rub"
-          />
-
-        </div>
-        <br/>
-        <span> Output calculate crypto</span>
-      </form>
+      </Row>
+      <Row className="ButtonsVolume">
+        {ARRAY_CURRENT_VALUTE.map((curValute, index) => (
+          <Col key={index}>
+            <Button onClick={onClickEventHandler} color="success">{curValute.toUpperCase()}</Button>
+          </Col>
+        ))}
+      </Row>
+      <Row>
+        <span> {useSelector(calcCryptoSelector)}</span>
+      </Row>
     </>
   );
 }

@@ -23,9 +23,7 @@ function App() {
           <Row>
             <SelectedCrypto/>
           </Row>
-          <Row>
             <CalcCrypto/>
-          </Row>
         </Container>
       </div>
     </Provider>
