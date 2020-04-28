@@ -6,7 +6,7 @@ import * as Actions from "../../engine/core/crypto/actions";
 //Selectors
 import {volumeCryptoSelector, calcCryptoSelector } from "../../engine/core/crypto/selectors";
 //Style
-import {Button, Row, Col} from "reactstrap";
+import {Button, ButtonGroup, Row, Col} from "reactstrap";
 
 function CalcCrypto() {
 
@@ -14,8 +14,9 @@ function CalcCrypto() {
   const ARRAY_CURRENT_VALUTE = ["uah", "usd", "rub"];
 
   const onChangeEventHandler = useCallback((ev) => {
-    dispatch(Actions.setVolumeCrypto(ev.target.value))
-    console.log(ev.target.value);
+    if (isFinite(ev.target.value)) {
+      dispatch(Actions.setVolumeCrypto(ev.target.value))
+    }
   }, [dispatch]);
 
   const onClickEventHandler = useCallback((ev)=>{
@@ -27,22 +28,29 @@ function CalcCrypto() {
   return (
     <>
       <Row>
-        <label htmlFor="volume">Volume: </label>
+        <Col sm="11" md={{ size: 6, offset: 3 }}>
+        <label htmlFor="volume">Volume</label>
         <input id="volume"
                type="text"
                onChange={onChangeEventHandler}
                value={useSelector(volumeCryptoSelector)}
+               className="Volume"
         />
+        </Col>
       </Row>
       <Row className="ButtonsVolume">
-        {ARRAY_CURRENT_VALUTE.map((curValute, index) => (
-          <Col key={index}>
-            <Button onClick={onClickEventHandler} color="success">{curValute.toUpperCase()}</Button>
-          </Col>
-        ))}
+        <ButtonGroup>
+          {ARRAY_CURRENT_VALUTE.map((curValute, index) => (
+            <Col key={index}>
+              <Button onClick={onClickEventHandler} color="success">{curValute.toUpperCase()}</Button>
+            </Col>
+          ))}
+        </ButtonGroup>
       </Row>
-      <Row>
-        <span> {useSelector(calcCryptoSelector)}</span>
+      <Row xs="1">
+        <Col sm="12" md={{ size: 6, offset: 3 }} >
+          <span className="calcCryptoSelector"> {useSelector(calcCryptoSelector)}</span>
+        </Col>
       </Row>
     </>
   );

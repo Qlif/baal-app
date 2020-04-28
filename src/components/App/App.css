@@ -27,3 +27,17 @@ figcaption {
     color: #86c551;
 }
 
+label{
+    color: #86c551;
+}
+.Volume{
+    background-color: #06162e;
+    color: #7DACF3;
+    width: 85%;
+    margin-left: 4%;
+}
+
+.calcCryptoSelector{
+    color: #86c551;
+}
+
