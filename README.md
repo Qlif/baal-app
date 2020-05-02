@@ -10,5 +10,8 @@ Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 React application Cryptocurrency widget .<br />
+Cryptocurrency used in aplication such as BTC, ETH, XRP. 
+Web Application will send request every five minutes for update information.<br />
+
 
 

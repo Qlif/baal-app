@@ -7,6 +7,7 @@ import {currentCryptoSelector} from "../../engine/core/crypto/selectors";
 import {Col} from "reactstrap";
 
 function SelectedCrypto() {
+
   return (
     <Col className="SelectedCrypto">
       <h3>Selected coin: {useSelector(currentCryptoSelector).toUpperCase()}</h3>

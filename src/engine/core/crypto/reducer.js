@@ -5,6 +5,7 @@ const initialState = {
   current: 'btc',
   volume: 5,
   valute: 'uah',
+  loader: true,
 };
 
 export default function cryptoReducer(state = initialState, action) {
@@ -31,6 +32,12 @@ export default function cryptoReducer(state = initialState, action) {
       return {
         ...state,
         valute: action.payload
+      };
+    }
+    case types.SET_LOADER: {
+      return {
+        ...state,
+        loader: action.payload
       };
     }
     default: {

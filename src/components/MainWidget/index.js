@@ -1,32 +1,23 @@
 //Core
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import React from "react";
+import {useSelector} from "react-redux";
+//Selectors
 import * as selectors from "../../engine/core/crypto/selectors";
-//Types
-import * as asyncAction from "../../engine/core/crypto/saga/asyncActions";
 //Components
 import Widget from "../Widget";
 //Style
 import {Col} from "reactstrap";
 
 function MainWidget() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(asyncAction.getCryptoDataAsync())
-  }, [dispatch]);
-
   const data = (useSelector(selectors.cryptowidgetSelector));
 
-
-  return <>
+  return (<>
         {Object.keys(data).map((currency, index) => (
-          <Col key={index}>
+          <Col xs={{size:10, offset:0}} sm={{size:10, offset:0}} md ={{size:4, offset:0}} xl="4" key={index}>
               <Widget  {...data[currency]} />
           </Col>
         ))}
-  </>
-
+  </>)
 }
 
 export default MainWidget;

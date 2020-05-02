@@ -5,7 +5,6 @@ import * as asyncTypes from "./asyncTypes";
 // Worker
 import {callCryptoDataAsyncWorker} from "./workers";
 
-
 function* watchGetCryptoData() {
   yield takeEvery(asyncTypes.GET_CRYPTO_DATA_ASYNC, callCryptoDataAsyncWorker)
 }

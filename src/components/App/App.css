@@ -1,9 +1,9 @@
-.App{
+body{
     background-color: #06162e;
     color: #7DACF3;
-    height: 100vh;
     padding-top: 50px;
 }
+
 .media {
     background-color: #0d2f52;
     padding: 30px 33px 52px;
@@ -25,6 +25,7 @@ figcaption {
 
 .ButtonsVolume{
     color: #86c551;
+
 }
 
 label{
@@ -33,11 +34,36 @@ label{
 .Volume{
     background-color: #06162e;
     color: #7DACF3;
-    width: 85%;
+    width: 73%;
     margin-left: 4%;
+    border: 1px solid #7DACF3;
+
 }
 
 .calcCryptoSelector{
     color: #86c551;
+    text-align: center;
+}
+
+.calcCryptoButton{
+    background-color: #0d2f52;
+    color: #86c551;
+}
+
+.row .btn-group .col .active{
+    background-color: #86c551;
+    color: #0d2f52;
+}
+
+.row{
+    justify-content: center;
+}
+
+.btn-group{
+    margin: 20px auto 60px;
+}
+
+.spinner-border{
+    margin: 10% calc(50% - 106px/2);
 }
 
